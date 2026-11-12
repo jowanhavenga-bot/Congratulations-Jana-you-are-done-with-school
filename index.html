@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5eee8">
+  <meta name="description" content="A little surprise, made just for you.">
+  <title>A Little Something for You</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="experience" aria-live="off">
+    <!-- 1. Lily curtain: lily-1.png and lily-3.png are loaded from assets/ by script.js. -->
+    <section class="scene paper-scene flowers-scene active" id="flowers-scene" aria-label="A field of lilies" aria-hidden="false">
+      <div class="paper-grain" aria-hidden="true"></div>
+      <div class="flower-curtain" id="flower-curtain" role="button" tabindex="0" aria-label="Swipe left or tap to sweep the lilies away">
+        <div class="flower-haze" aria-hidden="true"></div>
+        <div class="flower-layer flower-layer-back" id="flower-layer-back" aria-hidden="true"></div>
+        <div class="flower-layer flower-layer-front" id="flower-layer-front" aria-hidden="true"></div>
+      </div>
+      <div class="swipe-copy" id="swipe-copy">
+        <p>A little something is waiting…</p>
+        <span>(swipe them away)</span>
+      </div>
+      <span class="tiny-instruction">or tap the flowers</span>
+    </section>
+
+    <!-- 2. Panda and typed message. -->
+    <section class="scene paper-scene" id="panda-scene" aria-label="A panda with a present" aria-hidden="true" inert>
+      <div class="paper-grain" aria-hidden="true"></div>
+      <div class="panda-layout">
+        <div class="panda-image-wrap">
+          <img class="asset-image panda-image" src="./assets/panda.png" alt="A panda holding a gift" draggable="false">
+        </div>
+        <div class="panda-message">
+          <div class="speech-bubble" aria-live="polite">
+            <span id="typed-message"></span><span class="typing-caret" aria-hidden="true"></span>
+          </div>
+          <p class="soft-caption">A little surprise, just for you.</p>
+          <button class="text-button" id="open-gift-button" type="button" disabled>
+            <span>Tap to open your gift</span><span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Enlarged gift artwork. -->
+    <section class="scene paper-scene" id="gift-scene" aria-label="A closer look at the gift" aria-hidden="true" inert>
+      <div class="paper-grain" aria-hidden="true"></div>
+      <div class="gift-layout">
+        <p class="eyebrow">Just for you</p>
+        <img class="asset-image gift-image" src="./assets/gift-closeup.png" alt="A close-up of the decorated present" draggable="false">
+        <p class="gift-caption">Go on… open it.</p>
+        <button class="text-button" id="unwrap-button" type="button">
+          <span>Tap to unwrap</span><span class="button-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 4. Fireworks on a softly textured night background. -->
+    <section class="scene fireworks-scene" id="fireworks-scene" aria-label="A pastel fireworks celebration" aria-hidden="true" inert>
+      <div class="fireworks-paper" aria-hidden="true"></div>
+      <div class="fireworks-heading" id="fireworks-heading">
+        <p>A little celebration</p>
+        <span>Because you deserve it.</span>
+      </div>
+      <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+      <button class="image-next-button" id="next-button" type="button" aria-label="Next" hidden>
+        <img class="asset-image next-image" src="./assets/next-button.png" alt="Next" draggable="false">
+        <span class="next-fallback">Next <span aria-hidden="true">→</span></span>
+      </button>
+    </section>
+
+    <!-- 5. Letter. -->
+    <section class="scene paper-scene letter-scene" id="letter-scene" aria-label="A letter for you" aria-hidden="true" inert>
+      <div class="paper-grain" aria-hidden="true"></div>
+      <article class="letter-paper" id="letter-paper">
+        <div class="letter-topline"><span>A little note</span><span class="letter-sparkle" aria-hidden="true">✳</span></div>
+        <h1>You are finally done!!</h1>
+        <div class="letter-copy">
+          <p>I'm so proud of you. You've really given it your all this exam season — all the late nights and early mornings. You've worked so hard, and I'm absolutely honoured that you chose me as your study buddy. I had a blast with you.</p>
+          <p>I know you've still got one more exam left, so technically you're not quite done yet. But you wanted a website, and since you told me not to bring my laptop, I made you one today so I could send it to you today.</p>
+          <p>I'll see you in two days — Sabbath. <span class="aside-note">(I can't wait.)</span></p>
+          <p class="love-note">I love you.</p>
+        </div>
+        <button class="finish-reading-button" id="finish-reading-button" type="button">
+          Tap if you're done reading <span aria-hidden="true">↓</span>
+        </button>
+      </article>
+    </section>
+
+    <!-- 6. Final scene: a real photograph of a white Jetour X70 Plus on a coastal road. -->
+    <section class="scene coast-scene" id="coast-scene" aria-label="A white Jetour X70 Plus parked on a coastal road at golden hour" aria-hidden="true" inert>
+      <img
+        class="coast-photo"
+        id="coast-photo"
+        src="https://jetour.com.pk/assets/p5_2-BqIYE-27.webp"
+        data-fallback="https://upload.wikimedia.org/wikipedia/commons/9/98/Jetour_X70_002.jpg"
+        alt="Rear view of a white Jetour X70 Plus on a coastal road"
+        fetchpriority="high"
+        draggable="false"
+      >
+      <div class="coast-colour-grade" aria-hidden="true"></div>
+      <div class="coast-vignette" aria-hidden="true"></div>
+      <div class="coast-foreground coast-foreground-left" aria-hidden="true"></div>
+      <div class="coast-foreground coast-foreground-right" aria-hidden="true"></div>
+      <div class="coast-caption" aria-hidden="true"></div>
+    </section>
+  </main>
+</body>
+</html>
